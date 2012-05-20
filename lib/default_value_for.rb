@@ -111,7 +111,7 @@ module DefaultValueFor
     
     def _all_default_attribute_values_not_allowing_nil
       return _default_attribute_values_not_allowing_nil unless superclass.respond_to?(:_default_attribute_values_not_allowing_nil)
-      superclass._all_default_attribute_values_not_allowing_nil.merge(_default_attribute_values_not_allowing_nil)
+      (superclass._all_default_attribute_values_not_allowing_nil + _default_attribute_values_not_allowing_nil).flatten.uniq
     end
   end
 
